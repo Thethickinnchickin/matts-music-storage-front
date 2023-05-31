@@ -1,0 +1,9 @@
+.top-row {
+    max-height: 35vh;
+    max-width: 25vh;
+}
+
+img {
+    max-height: 20vh;
+    max-width: 10vh;
+}
