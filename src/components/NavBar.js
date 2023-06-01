@@ -16,13 +16,13 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item-cus">
-            <Link to="/songs" className="nav-link-cus">
-              Songs
+            <Link to="/play/song" className="nav-link-cus">
+              Artists
             </Link>
           </li>
           <li className="nav-item-cus">
-            <Link to="/play/song" className="nav-link-cus">
-              Artists
+            <Link to="/playlist" className="nav-link-cus">
+              Playlist
             </Link>
           </li>
           <li className="nav-item-cus">

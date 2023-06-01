@@ -1,54 +1,35 @@
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+import './App.css';
 import CreateSong from './pages/song/create';
 import Navbar from './components/NavBar';
 import Song from './pages/play/song';
 import BottomScroll from './components/BottomSoundBar';
 import Home from './pages/home';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
-import { useSelector, useDispatch } from "react-redux";
-import { addSong, clearSong } from "./redux/songSlice";
-
-
-
-
-
 
 function App() {
-  const songID = useSelector((state) => state.songplayer.songID);
-
-  const dispatch = useDispatch();
-
-  const handleSongChange = (newSongID) => {
-    dispatch(addSong(newSongID));
-  };
-
-  const handleClearSong = () => {
-    dispatch(clearSong());
-  };
-
 
   return (
     <Router>
       <div className="app-container">
-        <div className='row-1'>
+        <div className="content">
+        <div className="navbar-container">
           <Navbar />
         </div>
-        <div className='row-8'>
-        <Routes>
+          <Routes>
             <Route path="/create/song" element={<CreateSong />} />
             <Route path="/play/song" element={<Song />} />
-            <Route path="/" element={<Home/>}/>
+            <Route path="/" element={<Home />} />
+            <Route path="/playlists" element={<Home />} />
           </Routes>
-          
-          
         </div>
-        <div className='row-1 mb-0'>
+        <div className="bottom-scroll-container">
+          <BottomScroll className="bottom-scroll" cloudID={'647511d1cf16872b2ea2592f'} />
+        </div>
 
-          <BottomScroll className='bottom-scroll' cloudID={'647511d1cf16872b2ea2592f'}/>
-        </div>
       </div>
-
     </Router>
   );
 }

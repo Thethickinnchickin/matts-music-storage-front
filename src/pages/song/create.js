@@ -16,6 +16,7 @@ const SongUploadForm = () => {
   };
 
   const handleAudioChange = (e) => {
+    console.log(e.target.files[0]);
     setAudio(e.target.files[0]);
   };
 

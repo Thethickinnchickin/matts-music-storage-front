@@ -1,9 +1,61 @@
 .top-row {
-    max-height: 35vh;
-    max-width: 25vh;
-}
+    max-height: 25vh;
+    max-width: 20vh;
+    min-height: 25vh;
+    min-width: 20vh;
+  }
+  
+  img {
+    max-height: 21vh;
+    max-width: 21vh;
+    min-height: 20vh;
+    min-width: 20vh;
+  }
+  
+  .play-button {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    background-color: #29e05d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .heart-button {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .play-icon,
+  .heart-icon {
+    color: #333;
+    font-size: 24px;
+  }
 
-img {
-    max-height: 20vh;
-    max-width: 10vh;
-}
+  .liked {
+    color: pink;
+  }
+  
+  .details {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.592);
+    border-radius: 15px;
+    align-items: center;
+  }
+  
+  .button-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  

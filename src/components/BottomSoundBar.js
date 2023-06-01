@@ -4,13 +4,14 @@ import "react-h5-audio-player/lib/styles.css";
 import axios from 'axios';
 import { useSelector, useDispatch } from "react-redux";
 import { addSong, clearSong } from "../redux/songSlice";
+import { setLoggin, setToken, clearLoggin } from "../redux/authSlice";
 
 
 const SpotifyPlayer = ({ cloudID }) => {
   const [songUrl, setSongUrl] = useState('');
   const player = useRef();
   const songID = useSelector((state) => state.songplayer.songID);
-
+  const loggedIn = useSelector((state) => state.login.isLoggedIn)
   const dispatch = useDispatch();
 
   const handleSongChange = (cloudID) => {
@@ -20,6 +21,16 @@ const SpotifyPlayer = ({ cloudID }) => {
   const handleClearSong = () => {
     dispatch(clearSong());
   };
+
+  const newLoggin = () => {
+    dispatch(setLoggin(false))
+  }
+
+  const handleListen = (e) => {
+    const currentTime = e.target.currentTime;
+    console.log('Current time:', currentTime);
+  };
+  
 
 
   useEffect(() => {
@@ -42,23 +53,15 @@ const SpotifyPlayer = ({ cloudID }) => {
 
   return (
     <div className="spotify-player mt-5">
-        <div>
-          <h1>Current Song ID: {songID}</h1>
-          <button onClick={() => handleSongChange("647511d1cf16872b2ea2592f")}>Add Song</button>
-          <button onClick={handleClearSong}>Clear Song</button>
-        </div>
+
       <div className="audio-player-container">
         <div className="audio-player">
-          {/* {songUrl && (
-            <audio src={songUrl} controls autoPlay className="spotify-audio-player">
-              Your browser does not support the audio element.
-            </audio>
-          )} */}
       <AudioPlayer 
         preload='metadata'
             src={songUrl}
             onPlay={e => console.log("onPlay")}
             ref={player}
+            onListen={handleListen}
         />
 
 
