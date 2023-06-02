@@ -1,0 +1,24 @@
+.audio-nerd {
+    background-color: black;
+    color: white;
+  }
+  .audio-nerd .rhap_main-controls-button {
+    /* Styles for the play/pause button */
+    /* Add your custom styles here */
+    color: white;
+  }
+  
+  .audio-nerd .rhap_time {
+    /* Styles for the time display */
+    /* Add your custom styles here */
+    color: white;
+  }
+
+  .audio-nerd .rhap_progress-filled {
+    /* Styles for the time bar */
+    background-color: rgb(35, 187, 38); /* Change the color to your desired value */
+  }
+
+  .play-icon .rhap_play-pause-button {
+    color: red; /* Set your desired color here */
+  }

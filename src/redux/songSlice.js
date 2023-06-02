@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   songID: "",
+  isPaused: false
 };
 
 const songSlice = createSlice({
@@ -13,10 +14,16 @@ const songSlice = createSlice({
     },
     clearSong: (state, action) => {
         state.songID = ""
-    }
+    },
+    pause: (state, action) => {
+      state.isPaused = true
+    },
+    resume: (state, action) => {
+      state.isPaused = false
+    },
   },
 });
 
-export const { addSong, clearSong } = songSlice.actions;
+export const { addSong, clearSong, pause, resume } = songSlice.actions;
 
 export default songSlice.reducer;

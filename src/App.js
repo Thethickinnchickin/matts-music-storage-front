@@ -5,24 +5,28 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import CreateSong from './pages/song/create';
 import Navbar from './components/NavBar';
-import Song from './pages/play/song';
+import SongPage from './pages/play/song';
+import PlaylistPage from './pages/playlist/show';
 import BottomScroll from './components/BottomSoundBar';
 import Home from './pages/home';
+import Top from './pages/songPages/top'
 
 function App() {
 
   return (
     <Router>
       <div className="app-container">
-        <div className="content">
         <div className="navbar-container">
-          <Navbar />
+          <Navbar className="navbar-position" />
         </div>
+        <div className="content">
           <Routes>
             <Route path="/create/song" element={<CreateSong />} />
-            <Route path="/play/song" element={<Song />} />
+            {/* <Route path="/play/song" element={<Song />} /> */}
             <Route path="/" element={<Home />} />
-            <Route path="/playlists" element={<Home />} />
+            <Route path="/topSongs" element={<Top />} />
+            <Route path="/song/:id" element={<SongPage/>} />
+            <Route path="/playlists" element={<PlaylistPage/>} />
           </Routes>
         </div>
         <div className="bottom-scroll-container">

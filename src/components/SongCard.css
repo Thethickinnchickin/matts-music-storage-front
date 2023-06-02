@@ -59,3 +59,8 @@
     justify-content: space-between;
   }
   
+
+  .card.playing {
+    border: 2px solid red; /* Add a red border to indicate the playing song */
+  }
+  

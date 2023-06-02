@@ -4,6 +4,10 @@
   min-height: 100vh;
 }
 
+.navbar-container {
+  z-index: 10;
+}
+
 .content {
   flex-grow: 1;
 }

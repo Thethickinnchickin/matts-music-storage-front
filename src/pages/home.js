@@ -3,8 +3,7 @@ import axios from 'axios';
 import SongCard from '../components/SongCard';
 import { useNavigate } from 'react-router-dom';
 import '../pages/home.css';
-import { useSelector, useDispatch } from 'react-redux';
-import { addSong, clearSong } from '../redux/songSlice';
+
 
 function Home() {
   const [topSongs, setTopSongs] = useState([]);
@@ -49,7 +48,7 @@ function Home() {
     };
     const fetchLikedData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/user/likedSongs`, {
+        const response = await axios.get(`http://localhost:4000/api/user/likedSongs/5`, {
           headers: {
           'authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDZlYWVlYjMzY2IzMTc5ZWQwOTFkOGQiLCJ1c2VybmFtZSI6InVzZXJuYW1lIiwicGFzc3dvcmRfaGFzaCI6IiQyYSQxMCQ0Q1V1YUZmMi9vb1VxTVJCbEt1QVYuWXpDb1F0N3J5ay92b0ZRejFMWG5kQmxVMnouaVpNcSIsImVtYWlsIjoiZW1haWwiLCJhZ2UiOjMwLCJsaWtlZFNvbmdzIjpbXSwiX192IjowLCJpYXQiOjE2ODU1ODAxMDcsImV4cCI6MTY4NjE4NDkwN30.NvPdnEfmQH1p03htW6k1iVPEwaZwNMrHm8jmrT0vbWg"
           }
@@ -57,6 +56,7 @@ function Home() {
         console.log(response);
         if (response.status === 200) {
           const jsonData = response.data;
+          setLikedSongs(jsonData.songs)
           console.log(jsonData)
         } else {
           console.error('Error retrieving songs:', response.status);
@@ -75,7 +75,7 @@ function Home() {
         <div >
           <div className='row m-5'>
             <div className='row'>
-              <h2 className='row-title col-2' onClick={() => handleRowClick('/destination1')}>
+              <h2 className='row-title col-2' onClick={() => handleRowClick('/topSongs')}>
                 Top Songs &gt;
               </h2>
               <div className='col-10'></div>
@@ -124,8 +124,8 @@ function Home() {
               <div className='col-10'></div>
             </div>
             <div className='row'>
-            {Array.isArray(discoverSongs) &&
-            topSongs.map((song, index) => (
+            {Array.isArray(likedSongs) &&
+            likedSongs.map((song, index) => (
               <div className='col' key={index}>
                 <SongCard song={song} />
               </div>

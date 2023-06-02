@@ -1,0 +1,12 @@
+.row-title, .row-more {
+    color: white;
+    font-family: 'Alfa Slab One', cursive;
+}
+.row-title:hover, .row-more:hover {
+    color: rgba(255, 255, 255, 0.317);
+    cursor: pointer;
+    text-decoration: underline;
+}
+.row-more:hover {
+    
+}
